@@ -98,7 +98,7 @@ exports.deleteCmd = (rl,id) => {
 
 exports.creditsCmd = rl => {
     log('Autores de la práctica:', 'green');
-    log('Nicolás López', 'green');
+    log('NICOLAS LOPEZ', 'green');
     rl.prompt();
 };
 
