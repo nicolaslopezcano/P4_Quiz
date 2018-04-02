@@ -14,8 +14,8 @@ biglog(socket, 'CORE Quiz', 'green');
 
 
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+  input: socket,
+  output: socket,
   prompt: colorize("quiz > ", 'blue'),
    completer: (line) => {
         const completions = 'h help add delete show edit list test p play credits q quit'.split(' ');
@@ -94,7 +94,7 @@ rl.on('line', (line) => {
 
 }).on('close', () => {
   log(socket, '¡Adios!');
- 
+  
 });
 
 
