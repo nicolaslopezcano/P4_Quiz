@@ -239,7 +239,7 @@ exports.testCmd = (socket, rl, id) => {
             throw new Error(`No existe quiz asociado al id=${id}`);
         }
 
-        return makeQuestion(rl, `${quiz.question.concat('? ')}`)
+        return makeQuestion(socket, rl, `${quiz.question.concat('? ')}`)
         .then(a =>{
             if(a.toLowerCase().trim() === quiz.answer.toLowerCase().trim()) {
                 log(socket, "Su respuesta es: ");
