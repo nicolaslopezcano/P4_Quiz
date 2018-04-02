@@ -88,9 +88,9 @@ const makeQuestion = (socket, rl, text) => {
 
 exports.addCmd = (socket, rl) => {
 	
-    makeQuestion(rl, "Introduzca la pregunta: ")
+    makeQuestion(socket, rl, "Introduzca la pregunta: ")
     .then(q => {
-        return makeQuestion(rl, 'Introduzca la respuesta ')
+        return makeQuestion(socket, rl, 'Introduzca la respuesta ')
         .then(a => {
             return {question: q, answer: a};
         });
@@ -125,10 +125,10 @@ exports.editCmd = (socket, rl, id) => {
         }
 
         process.stdout.isTTY && setTimeout(() => {rl.write(quiz.question)}, 0);
-        return makeQuestion(rl, 'Introduzca la pregunta: ')
+        return makeQuestion(socket, rl, 'Introduzca la pregunta: ')
         .then(q => {
             process.stdout.isTTY && setTimeout(() => {rl.write(quiz.answer)}, 0);
-            return makeQuestion(rl, 'Introduzca la respuesta ')
+            return makeQuestion(socket, rl, 'Introduzca la respuesta ')
             .then(a => {
                 quiz.question= q;
                 quiz.answer= a;
@@ -198,7 +198,7 @@ exports.playCmd = (socket, rl) => {
             let quiz = toBeResolved[id];
             toBeResolved.splice(id, 1);
 
-            makeQuestion(rl, `${quiz.question.concat('? ')}`)
+            makeQuestion(socket, rl, `${quiz.question.concat('? ')}`)
             .then(answer =>{
             if(answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()) {
                 score ++;
