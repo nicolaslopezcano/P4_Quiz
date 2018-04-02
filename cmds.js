@@ -230,7 +230,7 @@ exports.playCmd = (socket, rl) => {
         })
 };
 
-exports.testCmd = (rl, id) => {
+exports.testCmd = (socket, rl, id) => {
 	
     validateId(id)
     .then(id => models.quiz.findById(id))
