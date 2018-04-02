@@ -248,7 +248,7 @@ exports.testCmd = (rl, id) => {
                 log(socket, "Su respuesta es: ");
                 log(socket, "Incorrecta");
             }
-            return quiz;
+            //return quiz;
 
         });
     })

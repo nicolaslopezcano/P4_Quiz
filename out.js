@@ -11,7 +11,7 @@ const colorize = (msg, color) => {
 
 const log = (socket, msg, color) => {
 
-	socket.write(colorize(msg, color) + "\n");
+	socket.write(colorize(msg, color) + "\r\n");
 };
 
 const biglog = (socket, msg, color) => {
